@@ -1,5 +1,6 @@
 const mediaStreamConstraints = {
     video: true
+    
 };
 const offerOptions = {
     offerToReceiveVideo: 1,
@@ -17,7 +18,7 @@ function gotRemoteStream(event, userId) {
     remoteVideo.setAttribute('data-socket', userId);
     remoteVideo.srcObject   = event.stream;
     remoteVideo.autoplay    = true;
-    remoteVideo.muted       = true;
+    remoteVideo.muted       = false;
     remoteVideo.playsinline = true;
     document.querySelector('.videos').appendChild(remoteVideo);
 }
@@ -28,16 +29,21 @@ function gotIceCandidate(fromId, candidate) {
 
 
 function startLocalStream() {
-    navigator.mediaDevices.getUserMedia(mediaStreamConstraints) //autorização ao acesso de camera e mic
+    navigator.mediaDevices.getUserMedia(({
+       // audio: true,
+        video: true
+      })) //autorização ao acesso de camera e mic
         .then(getUserMediaSuccess)
         .then(connectSocketToSignaling).catch(handleError);
 }
 
-
+//const link = 'http://localhost:3000/'
+//const link = ' http://e042-150-162-83-224.ngrok.io'
 
 function connectSocketToSignaling() {
-    const socket = io.connect('http://localhost:3000', { secure: true });
-    
+    //const socket = io.connect(link, { secure: true });
+    var socket = io();
+
     $("form#chat").submit(function(e){     
         e.preventDefault();
         socket.emit("enviar mensagem", $(this).find("#texto_mensagem").val(), function(){ //vai mandar para o index.js
@@ -46,6 +52,11 @@ function connectSocketToSignaling() {
          
       });
       
+      socket.on("atualizar_mensagens", (dados) => {
+        //Mandando atualizar la no client.
+        emit("atualizar_mensagens", dados);
+      });
+
       socket.on("atualizar mensagens", function(mensagem){    //Pega a msg escrita e mandar para o idex.js para madar pro historico
         var mensagem_formatada = $("<p />").text(mensagem);
         $("#historico_mensagens").append(mensagem_formatada); //Coloca a msg no historico
@@ -97,9 +108,13 @@ function connectSocketToSignaling() {
             }
         });
 
-        socket.on('user-left', (userId) => {
-            let video = document.querySelector('[data-socket="'+ userId +'"]');
-            video.parentNode.removeChild(video);
+        socket.on('user-left', user => {
+            console.log("U: ",user)
+            console.log("U1: ",userId)
+            if(document.querySelector('[data-socket="'+ userId +'"]')){
+                let video = document.querySelector('[data-socket="'+ userId +'"]');
+                video.parentNode.removeChild(video);
+            }
             //printa connection
             console.log(userId + ' left')
             //remove o connection

@@ -25,3 +25,5 @@ function funcaoStats(stats){
 	//console.log(temp)
 	return temp
 }
+
+exports.funcaoStats = funcaoStats;

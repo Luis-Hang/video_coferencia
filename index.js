@@ -5,6 +5,7 @@ const server = express();
 const app = express();
 const http = require('http').Server(server);
 const io = require('socket.io')(http);
+//const ngrok = require('ngrok'); 
 let dados;
 
 let dadosStats =[];
@@ -17,6 +18,19 @@ let testeMap = new Map();
 var usuarios =[]
 let ultimas_mensagens = [];
 
+const HOST = '0.0.0.0'
+
+/*
+ngrok.connect({
+    proto : 'http',
+    addr : process.env.PORT,
+}, (err, url) => {
+    if (err) {
+        console.error('Error while connecting Ngrok',err);
+        return new Error('Ngrok Failed');
+    }
+});
+*/
 server.use(express.static('public'));
 app.use(express.json());
 
@@ -26,7 +40,7 @@ server.get("/stats", function(req,res){
 	res.json(obj);
 });
 
-http.listen(3000, () => {  //cria o servidor
+http.listen(3000,HOST, () => {  //cria o servidor
     console.log('Server started at: 3000');
 });
 
@@ -61,6 +75,8 @@ io.on('connection', function (socket) {
             socket.apelido = apelido; 
             usuarios[apelido] = socket;
   
+
+            
             io.sockets.emit("atualizar usuarios", Object.keys(usuarios));  //atualiza o select para mostra o usurios
             io.sockets.emit("atualizar mensagens", " " + pegarDataAtual() + " " + apelido + " acabou de entrar na sala"); //mostra no historio a chegado do usurario
             io.sockets.emit("desc", " " + pegarDataAtual() + " " + apelido);
@@ -74,7 +90,8 @@ io.on('connection', function (socket) {
         io.sockets.emit("atualizar mensagens", mensagem_enviada);
         callback();
     });
-    socket.on("disconnect", function(){    //quando o usuario sai da pagina
+    socket.on("disconnect", function(){ 
+        io.sockets.emit('user-left', socket.id)   //quando o usuario sai da pagina
         delete usuarios[socket.apelido];
         stats.delete(socket.id); 
         

@@ -27,3 +27,14 @@ describe('Teste da função de estatística de outra forma', ()=>{
 
 	})
 })
+
+const {armazenaMensagem} = require('./funcao')
+
+describe('Teste da função de armazenar mensagens', ()=>{
+
+	it('Testando funcionamento de armazenaMensagem.', ()=>{
+		let mensagem = 'mensagem2';
+		let ultimas_mensagens = ['Mensagem0', 'mensagem1'];
+		expect(armazenaMensagem(mensagem, ultimas_mensagens)).toEqual(["Mensagem0", "mensagem1", "mensagem2"])
+	})
+})

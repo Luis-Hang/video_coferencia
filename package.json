@@ -1,12 +1,18 @@
 {
   "dependencies": {
     "express": "^4.16.4",
+    "g": "^2.0.1",
+    "http": "0.0.1-security",
+    "node-fetch": "^3.1.0",
+    "nodemon": "^2.0.15",
+    "selenium-webdriver": "^4.1.0",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "jest": "^27.3.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon index.js"
   }
 }

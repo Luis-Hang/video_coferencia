@@ -1,0 +1,15 @@
+Como rodar:
+
+terminal: cd desktop
+
+desktop: ./ngrok http 3000
+
+no terminal da pasta do site podendo ser no proprio vscode: node index.js
+
+acessar o link criado pelo ngrok
+
+utilizando docker:
+
+antes foi utilizado pra criar a image : docker build . -t luisdoc/video_cof3.1.1
+
+para fazer o docker funcionar : docker run -p 3000:3000 luisdoc/video_cof3.1.1
