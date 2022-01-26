@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;600;700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html{/* 1 – Geral */
+  height: 100%;
+  }
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #03B5AA;
+    min-height: 100%;
+    position: relative; 
+    
+
+}
+
+header{
+    height: 70px;
+    background-color: #222E50;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 1.5em;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.26);
+}
+header>h1 {
+    color: white;
+    font-weight: lighter;
+    height: 50px;
+    margin: 0px ;
+    padding: 10px;
+
+}
+header img{
+    width: 40px;
+    height: 40px;
+    
+    
+}
+main{
+    background-color: #ACFCD9;
+
+    min-width: 300px;
+    max-width: 750px;
+    padding: 20px;
+    
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+  .quadros {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+  .quadros img{
+      
+      max-width: 350px;
+      margin: auto;
+      width: 100%;
+  }
+  .box {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    
+  }
+
+  video {
+    max-width: 100%;
+    width: 350px;
+    background-color: #2a5022;
+  }
+  
+  .descrição{
+      background-color: #222e5093;
+      margin: auto;
+      max-width: 320px;
+      border-radius: 0px 0px 10px 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+      
+  }
+  .descrição>p{
+      color: white;
+      font-size: 1.5em;
+      text-align: left;
+      height: 30px;
+      padding: 15px;
+  }
+
+ #cont{
+    background-color:#ACFCD9;
+    width: 500px;
+    margin: auto;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+ }
+#cont img{
+    width: 40px;
+    height: 40px;
+}
+  .controles {
+    
+    display: table;
+    width: 100%;
+    height: 100%;
+    
+  }
+  .opcao {
+    
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    
+    
+  }   
+ 
+  #chat2{
+      background-color:#222e5093 ;
+      width: 500px;
+      
+      min-height: 100%;
+      margin: auto;
+      margin-top: 15px;
+      border-radius: 10px ;
+      padding-top: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+      
+  }
+
+  
+#chat {
+    background-color: #222E50;
+    padding: 8px;
+    display: table;
+    border-radius: 0px 0px 10px 10px;
+    height: 100%;
+    width: 484px;
+  }
+
+  
+
+#conteudo{
+  padding-bottom: 30px;
+}
+footer{
+  background-color: #ACFCD9;
+  color: 222E50;
+  
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+
+}
+
+form{
+  margin: 15px 0;
+}
+
+form input[type='text']{
+  border: 2px solid rgba(0, 0, 0, 0.329);
+  border-radius: 5px;
+  padding: 5px;
+  width: 75%;
+
+}
+
+form input[type='submit']{
+  background-color: blueviolet;
+  border: none;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 7px 5px;
+  width: 20%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+}
+
+#historico_mensagens{
+  background-color: #FFF;
+  margin: 10px 0px 10px 10px;
+  height: 300px;
+  float: left;
+  border-radius: 10px 0px 0px 10px;
+  width: 73%;
+  padding: 5px;
+  overflow:auto; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+}
+
+#historico_mensagens>p{
+  background-color: #3c528f93;
+  color: white;
+  padding: 3px;
+  border-radius: 1px 5px 5px 5px;
+  margin: 5px;
+  
+}
+
+#lista_usuarios{
+  background-color: #FFF;
+  border: none;
+  margin: 10px 10px 10px 1px;
+  height: 310px;
+  float: left;
+  border-radius: 0px 10px 10px 0px;
+  width: 20%;
+  padding: 5px;
+  
+}
+
+
+
+#sala_chat{
+  display: none;
+  padding-bottom: 20px;
+}
+
+#acesso_usuario{
+  
+  margin: auto;
+  margin-top: 150px;
+  width: 500px;
+
+
+}
+#acesso_usuario form{
+  font-size: 16px;
+  
+}
+#acesso_usuario>form input[type='text']{
+  background-color: #FFF;
+  border: none;
+  border-radius: 5px;
+  
+  cursor: pointer;
+  font-weight: bold;
+  padding: 7px 7px;
+  width: 75%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#acesso_usuario>form input[type='submit']{
+  background-color: blueviolet;
+  border: none;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 7px 7px;
+  width: 20%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
+  height: 37px;
+  
+}
+
+

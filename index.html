@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBconferência</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="imagens/favicon_io-2/favicon.ico" type="image/x-icon">
+</head>
+
+<head>
+  
+
+  <title>Realtime communication with WebRTC</title>
+
+  <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body>
+  <header>
+    <h1><img src="imagens/icone_cam1.png" alt="Icone camera"> WEBconferência</h1>
+  </header>
+
+  <div id="acesso_usuario">
+    <form id='login'>
+        <input type="text" placeholder='Insira seu apelido' name="apelido" id="apelido">
+        <input type="submit" value="Entrar">
+        
+    </form>
+  </div>
+
+  <div id="sala_chat">
+    <div id="conteudo">
+        <main>
+          <div class="quadros">
+            <div class="box">
+
+              <div class="videos">
+                <video id="localVideo" autoplay muted playsinline ></video>
+              </div>
+
+            </div>
+            
+          
+            <br />
+            <div id="connections"></div>
+
+          </div>
+
+        
+        </main> 
+    </div>
+
+    <div id="cont">
+      <div class="controles">
+          <div class="opcao"> 
+            <abbr title="Desligar microfone"><img src="imagens/icone_mic.png" alt="Microfone"></abbr>
+          </div>
+          <div class="opcao"> 
+            <abbr title="Desligar a ligação"><img src="imagens/tel_end.png" alt="Terminar ligação"></abbr> 
+          </div>
+          <div class="opcao">
+            <abbr title="Desligar câmera"><img src="imagens/icone_cam2.png" alt="Camera"></abbr>    
+          </div>   
+      </div>
+    </div>
+
+    <div id="chat2">
+                    
+      <div id="historico_mensagens">
+
+      </div>
+      <select multiple="multiple" id="lista_usuarios">
+          <option value="">Todos</option>
+      </select>
+
+      <form id='chat'>
+          <input type="text" id='texto_mensagem' name='texto_mensagem'>
+          <input type="submit" value='Enviar'/>
+      </form>
+   </div>
+  </div>
+
+  <footer>
+    <p>Site criado por Luis Gustavo Hang Pereira</p>
+  </footer>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
+  
+
+</body>
+
+</html>
