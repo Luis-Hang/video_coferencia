@@ -40,7 +40,9 @@ server.get("/stats", function(req,res){
 	res.json(obj);
 });
 
-http.listen(3000,HOST, () => {  //cria o servidor
+//http.listen(3000,HOST, () => {  //cria o servidor com docker
+http.listen(3000, () => {  //cria o servidor sem docker
+
     console.log('Server started at: 3000');
 });
 
