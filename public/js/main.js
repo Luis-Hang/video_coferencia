@@ -30,7 +30,7 @@ function gotIceCandidate(fromId, candidate) {
 
 function startLocalStream() {
     navigator.mediaDevices.getUserMedia(({
-       // audio: true,
+        audio: true,
         video: true
       })) //autorização ao acesso de camera e mic
         .then(getUserMediaSuccess)
