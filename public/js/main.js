@@ -18,7 +18,7 @@ function gotRemoteStream(event, userId) {
     remoteVideo.setAttribute('data-socket', userId);
     remoteVideo.srcObject   = event.stream;
     remoteVideo.autoplay    = true;
-    remoteVideo.muted       = false;
+    remoteVideo.muted       = true;
     remoteVideo.playsinline = true;
     document.querySelector('.videos').appendChild(remoteVideo);
 }
@@ -30,7 +30,7 @@ function gotIceCandidate(fromId, candidate) {
 
 function startLocalStream() {
     navigator.mediaDevices.getUserMedia(({
-       // audio: true,
+        audio: true,
         video: true
       })) //autorização ao acesso de camera e mic
         .then(getUserMediaSuccess)
