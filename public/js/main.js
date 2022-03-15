@@ -305,5 +305,26 @@ function estatisticas(socket, pc){
     })
 }
 
+//controles
+
+const audioToggle = document.getElementById('audioToggle');
+
+const toggleButton = document.getElementById('toggle-audio');
+
+toggleButton.onclick = function() {
+    
+    console.log("Teste", localStream.getAudioTracks()[0])
+    if(localStream.getAudioTracks()[0].enabled == true){
+        localStream.getAudioTracks()[0].enabled = false; // or false to mute it.
+        toggleButton.innerHTML = 'Ativar Mic'
+        console.log("L: ",localStream.getAudioTracks()[0])
+    } else {
+        localStream.getAudioTracks()[0].enabled = true; // or false to mute it.
+        console.log("L: ",localStream.getAudioTracks()[0])
+        toggleButton.innerHTML = 'Mutar Mic'
+    }
+    
+};
+
 startLocalStream();
 
