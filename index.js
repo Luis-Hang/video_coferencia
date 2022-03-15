@@ -41,7 +41,11 @@ server.get("/stats", function(req,res){
 });
 
 //http.listen(3000,HOST, () => {  //cria o servidor com docker
+<<<<<<< HEAD
 http.listen(3000, () => {  //cria o servidor sem docker
+=======
+http.listen(process.env.PORT || 3000, () => {  //cria o servidor sem docker
+>>>>>>> ae0145caee8f44912f0dfb9846fb1a22b70290c6
 
     console.log('Server started at: 3000');
 });

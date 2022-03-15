@@ -13,3 +13,5 @@ utilizando docker:
 antes foi utilizado pra criar a image : docker build . -t luisdoc/video_cof3.1.1
 
 para fazer o docker funcionar : docker run -p 3000:3000 luisdoc/video_cof3.1.1
+
+se utilizar docker mudar no package json star de node para nodemon 
